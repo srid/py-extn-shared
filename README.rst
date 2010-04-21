@@ -12,8 +12,8 @@ Using ``--rpath`` ('runtime search path'), hardcodes the library search path in
 the built Python module (foo.so)::
 
     $ ldd /home/sridharr/.virtualenvs/slenv/lib/python2.6/site-packages/foo.so 
-        libmylib.so => /home/sridharr/code/py-extn-shared/mylib/libmylib.so (..)
-        [...]
+    libmylib.so => /home/sridharr/code/py-extn-shared/mylib/libmylib.so (..)
+    [...]
 
     $ strings build/lib.linux-x86_64-2.6/foo.so  | grep sridharr
     /home/sridharr/code/py-extn-shared/mylib/
