@@ -5,7 +5,7 @@ shared library::
     $ python setup.py build_ext --rpath=`pwd`/mylib build install
     $ python -c "import foo; foo.hello('Guy')"
 
-On MacOSX - assuming it will be used in ActivePython (i386, ppc):
+On MacOSX - assuming it will be used in ActivePython (i386, ppc)::
 
     $ CC=/usr/bin/gcc-4.0 MACOSX_DEPLOYMENT_TARGET=10.4 \
     CFLAGS='-arch ppc -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk' \
@@ -34,5 +34,11 @@ So relocation can be supported by rewriting the paths in the .so files to
 PJE's solution
 --------------
 
-... is to use '.' in RPATH and change directories in a stub loader: http://mail.python.org/pipermail/distutils-sig/2006-January/005833.html
+... is to use ``'.'`` in RPATH and change directories in a stub loader:
+http://mail.python.org/pipermail/distutils-sig/2006-January/005833.html
+
+Enthought
+---------
+
+What does EPD/enstaller use? TODO
 
