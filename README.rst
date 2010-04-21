@@ -7,15 +7,17 @@ shared library::
 
 On MacOSX - assuming it will be used in ActivePython (i386, ppc)::
 
-    $ CC=/usr/bin/gcc-4.0 MACOSX_DEPLOYMENT_TARGET=10.4 \
+    $ cd mylib && CC=/usr/bin/gcc-4.0 MACOSX_DEPLOYMENT_TARGET=10.4 \
     CFLAGS='-arch ppc -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk' \
     make clean all
     $ # run the setup.py cmd with the same env vars as above
-    $ # run the ``python -c`` from withink ./mylib/ directory 
-    # otherwise, I don't know how to make rpath work on Mac :/
+    $ # run the ``python -c`` command from within ./mylib/ directory 
+    # otherwise, I don't know how to make rpath work on Mac :/ 
 
 RPATH
 -----
+
+TODO: make RPATH work on OSX
 
 Using ``--rpath`` ('runtime search path'), hardcodes the library search path in
 the built Python module (foo.so)::
