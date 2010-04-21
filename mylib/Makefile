@@ -2,10 +2,13 @@
 all: libmylib.so
 
 libmylib.so: mylib.o
-	gcc -shared mylib.o -o libmylib.so
+	gcc ${CFLAGS} -shared mylib.o -o libmylib.so
+
+libmylib.dylib: mylib.o
+	gcc ${CFLAGS} -shared mylib.o -o libmylib.dylib
 
 mylib.o: mylib.c
-	gcc -fPIC -c mylib.c
+	gcc ${CFLAGS} -fPIC -c mylib.c
 
 clean:
-	rm -rf *.o *.so
+	rm -rf *.o *.so *.dylib
