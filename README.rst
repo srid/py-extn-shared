@@ -42,5 +42,11 @@ http://mail.python.org/pipermail/distutils-sig/2006-January/005833.html
 Enthought
 ---------
 
-What does EPD/enstaller use? TODO
+What does EPD/enstaller use? Inspecting one of their .egg file showed the 
+file "EGG-INFO/inst/ch_macho.py" which seems to be similar to this one:
+https://svn.enthought.com/enthought/browser/Enstaller/trunk/egginst/object_code.py
+
+They put a PLACEHOLDER string into the dylib/so file (note that EPD has minimum
+OSX 10.5 requirement). And then replace that PLACEHOLDER with the actual
+library location post-installation.
 
