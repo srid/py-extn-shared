@@ -1,0 +1,9 @@
+CFLAGS := -arch i386 -arch ppc -isysroot /Developer/SDKs/MacOSX10.4u.sdk
+
+all: libmylib.dylib
+
+libmylib.dylib: mylib.c
+	MACOSX_DEPLOYMENT_TARGET=10.4 gcc ${CFLAGS} -dynamiclib -fPIC mylib.c -o libmylib.dylib -install_name @rpath/lib/libmylib.dylib
+
+clean:
+	rm -rf *.o *.so *.dylib

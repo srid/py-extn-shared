@@ -1,0 +1,8 @@
+
+all: libmylib.so
+
+libmylib.so: mylib.c
+	gcc ${CFLAGS} -shared -fPIC mylib.c -o libmylib.so
+
+clean:
+	rm -rf *.o *.so *.dylib

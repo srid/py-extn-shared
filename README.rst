@@ -1,11 +1,17 @@
 An example project demonstrating linking a Python extension module with another
 shared library::
 
-    $ cd mylib && make
+    $ (cd mylib && make -f make.unix clean all)
     $ python setup.py build_ext --rpath=`pwd`/mylib build install
     $ python -c "import foo; foo.hello('Guy')"
 
 On MacOSX - assuming it will be used in ActivePython (i386, ppc)::
+
+    $ (cd mylib && make -f make.osx clean all)
+    $ make
+    $ make test # this should fail
+    $ make fixlibpath F=~/.virtualenvs/slenv/lib/python2.6/site-packages/foo.so 
+    $ make test # should pass now
 
     $ cd mylib && CC=/usr/bin/gcc-4.0 MACOSX_DEPLOYMENT_TARGET=10.4 \
     CFLAGS='-arch ppc -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk' \
