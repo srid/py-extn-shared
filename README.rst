@@ -2,16 +2,16 @@ An example project demonstrating linking a Python extension module with another
 shared library::
 
     $ (cd mylib && make -f make.unix clean all)
-    $ make
-    $ make test # should pass, because of using rpath in distutils
+    $ make -f make.unix
+    $ make -f make.unix test # should pass, because of using rpath in distutils
 
 On MacOSX - assuming it will be used in ActivePython (i386, ppc)::
 
     $ (cd mylib && make -f make.osx clean all)
-    $ make
-    $ make test # this should fail
-    $ make fixlibpath F=~/.virtualenvs/slenv/lib/python2.6/site-packages/foo.so 
-    $ make test # should pass now
+    $ make -f make.osx
+    $ make -f make.osx test # this should fail
+    $ make -f make.osx fixlibpath F=~/.virtualenvs/slenv/lib/python2.6/site-packages/foo.so 
+    $ make -f make.osx test # should pass now
 
 RPATH
 -----
@@ -32,7 +32,7 @@ So relocation can be supported by rewriting the paths in the .so files to
 
 On OSX, rpath can be supported using the ``install_name`` feature (see this 
 `blog post <http://blog.onesadcookie.com/2008/01/installname-magic.html>`__).
-We do automatically this in the makefiles::
+We automatically do this in the makefiles::
 
 	$ otool -L build/lib.macosx-10.4-fat-2.6/foo.so 
 	build/lib.macosx-10.4-fat-2.6/foo.so:
