@@ -13,7 +13,6 @@ On MacOSX - assuming it will be used in ActivePython (i386, ppc)::
     $ make fixlibpath F=~/.virtualenvs/slenv/lib/python2.6/site-packages/foo.so 
     $ make test # should pass now
 
-
 RPATH
 -----
 
