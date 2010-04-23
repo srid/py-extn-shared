@@ -31,8 +31,17 @@ So relocation can be supported by rewriting the paths in the .so files to
 ``$sys.prefix/lib`` (ensuring that the original path is long enough).
 
 On OSX, rpath can be supported using the ``install_name`` feature (see this 
-`blog post <http://blog.onesadcookie.com/2008/01/installname-magic.html>`).
-We do automatically this in the makefiles.
+`blog post <http://blog.onesadcookie.com/2008/01/installname-magic.html>`__).
+We do automatically this in the makefiles::
+
+	$ otool -L build/lib.macosx-10.4-fat-2.6/foo.so 
+	build/lib.macosx-10.4-fat-2.6/foo.so:
+			@rpath/lib/libmylib.dylib (...)
+	$ otool -L mylib/libmylib.dylib 
+	mylib/libmylib.dylib:
+			@rpath/lib/libmylib.dylib (...)
+	$
+
 
 PJE's solution
 --------------
