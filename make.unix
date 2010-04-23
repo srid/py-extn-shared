@@ -1,0 +1,14 @@
+
+all: build_and_install
+
+build_and_install:
+	python setup.py build_ext --rpath=`pwd`/mylib build install
+
+fixlibpath:
+	echo "TODO" && exit 1
+
+test:
+	python -c "import foo; foo.hello('Guy')"
+
+clean:
+	rm -rf build/
