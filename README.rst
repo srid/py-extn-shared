@@ -42,6 +42,11 @@ We do automatically this in the makefiles::
 			@rpath/lib/libmylib.dylib (...)
 	$
 
+OSX provides ``install_name_tool`` to modify this path::
+
+    $ install_name_tool -change @rpath/lib/libmylib.dylib `pwd`/mylib/libmylib.dylib build/lib.macosx-10.4-fat-2.6/foo.so 
+
+Enthough does this manually, I suppose (see object_code.py below)}
 
 PJE's solution
 --------------
